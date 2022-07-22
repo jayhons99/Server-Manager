@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -66,6 +67,7 @@ public class ServerServiceImpl implements ServerService {
     }
 
     private String setServerImageUrl() {
-        return null;
+        String imageName = "server1.png";
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/server/image/" + imageName).toUriString();
     }
 }
